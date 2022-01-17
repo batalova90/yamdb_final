@@ -1,10 +1,11 @@
-from django.shortcuts import get_object_or_404
+import datetime as dt
+
+from categories.models import Categories, Genres, Titles, TitlesGenres
 from django.db.models import Avg
+from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from reviews.models import Comment, Review
-from categories.models import Genres, Titles, Categories, TitlesGenres
 from users.models import User
-import datetime as dt
 
 
 class RegisterSerializer(serializers.ModelSerializer):
