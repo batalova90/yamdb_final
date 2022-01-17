@@ -7,12 +7,14 @@ class IsAdmin(BasePermission):
             and request.user.is_admin
                 or request.user.is_superuser):
             return True
+        return False
 
     def has_object_permission(self, request, view, obj):
         if (request.user.is_authenticated
             and request.user.is_admin
                 or request.user.is_superuser):
             return True
+        return False
 
 
 class IsModerator(BasePermission):
@@ -21,12 +23,14 @@ class IsModerator(BasePermission):
             and request.user.is_moderator
                 or request.user.is_staff):
             return True
+        return False
 
     def has_object_permission(self, request, view, obj):
         if (request.user.is_authenticated
             and request.user.is_moderator
                 or request.user.is_staff):
             return True
+        return False
 
 
 class IsAuthorOrReadOnly(BasePermission):
@@ -34,11 +38,13 @@ class IsAuthorOrReadOnly(BasePermission):
         if (request.user.is_authenticated
                 or request.method in SAFE_METHODS):
             return True
+        return False
 
     def has_object_permission(self, request, view, obj):
         if (obj.author == request.user
                 or request.method in SAFE_METHODS):
             return True
+        return False
 
 
 class AdminAddInfoClasses(BasePermission):
