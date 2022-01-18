@@ -43,3 +43,19 @@ jobs:
         with:
            push: true
            tags: batalova/yamdb_final:v1.01.2022
+
+   deploy:
+      runs-on: ubuntu-latest
+      needs: build_and_push_to_docker_hub
+      steps:
+      - name: exuting remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+           host: ${{ secrets.USER }}
+           key: ${{ secret.SSH_KEY }}
+           passphrase: ${{ secrets.PASSPHRASE }}
+           script: |
+              sudo docker pull batalova/yamdb_final:v1.01.2022
+              sudo docker stop $(sudo docker ps -a -q)
+              sudo docker run --rm -d -p 4000:4000 batalova/yamdb_final:v1.01.2022
+
