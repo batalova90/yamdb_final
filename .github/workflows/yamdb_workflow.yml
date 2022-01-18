@@ -52,7 +52,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
            host: ${{ secrets.USER }}
-           key: ${{ secret.SSH_KEY }}
+           key: ${{ secrets.SSH_KEY }}
            passphrase: ${{ secrets.PASSPHRASE }}
            script: |
               sudo docker pull batalova/yamdb_final:v1.01.2022
