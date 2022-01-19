@@ -30,8 +30,7 @@ jobs:
       needs: tests
       steps:
       - name: Check out the repo
-        uses:  cd ./api_yamdb
-               actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to Docker
