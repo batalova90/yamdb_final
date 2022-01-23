@@ -3,7 +3,7 @@ services:
    db:
       image: postgres:13.0-alpine
       volumes:
-         - /var/lib/postgresql/data/
+         - postgres_data:/var/lib/postgresql/data/
       env_file:
          - ./.env/
    web:
@@ -13,8 +13,8 @@ services:
       volumes:
          - static_value:/app/static/
          - media_value:/app/media/
-      ports:
-         - "8000:8000"
+      # ports:
+         # - "8000:8000"
       depends_on:
          - db
       env_file:
@@ -31,5 +31,6 @@ services:
       depends_on:
          - web
 volumes:
+     postgres_data:
      static_value:
      media_value:
