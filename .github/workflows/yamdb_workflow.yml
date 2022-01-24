@@ -45,7 +45,7 @@ jobs:
            context: ./api_yamdb
            file: ./api_yamdb/Dockerfile
            push: true
-           tags: batalova/yamdb_final:v1.01.2022
+           tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_final:v1.01.2022
 
    deploy:
       runs-on: ubuntu-latest
@@ -59,9 +59,10 @@ jobs:
            key: ${{ secrets.SSH_KEY }}
            passphrase: ${{ secrets.PASSPHRASE }}
            script: |
-              sudo docker pull batalova/yamdb_final:v1.01.2022
+              sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final:v1.01.2022
               sudo docker stop $(sudo docker ps -a -q)
               sudo docker run --rm -d -p 5000:5000 batalova/yamdb_final:v1.01.2022
+              sudo docker-compose up -d
 
    send_message:
       runs-on: ubuntu-latest
