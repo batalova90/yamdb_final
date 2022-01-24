@@ -1,0 +1,6 @@
+id,password,last_login,is_superuser,username,first_name,last_name,is_staff,is_active,date_joined,bio,email,role
+100,100_users,,false,bingobongo,Дмитрий,Петров,false,true,2020-01-13T23:20:02.422Z,--отсутствует--,bingobongo@yamdb.fake,user
+101,101_users,,false,capt_obvious,Иван,Иванов,true,true,2020-01-13T23:20:02.422Z,--отсутствует--,capt_obvious@yamdb.fake,admin
+102,102_users,,false,faust,Алексей,Сергеев,false,true,2020-01-13T23:20:02.422Z,--отсутствует--,faust@yamdb.fake,user
+103,103_users,,false,reviewer,Мария,Кашина,false,true,2020-01-13T23:20:02.422Z,--отсутствует--,reviewer@yamdb.fake,user
+104,104_users,,true,angry,Вадим,Приходько,true,true,2020-01-13T23:20:02.422Z,--отсутствует--,angry@yamdb.fake,moderator
