@@ -41,4 +41,4 @@ docker-compose exec web python collecstatic --no-input
  
 
 #### Основные доступные эндпоинты можно посмотреть по адресу http://localhost/redoc
-#### Адрес проекта: http://51.250.131/
+#### Адрес проекта: http://51.250.1.131/
